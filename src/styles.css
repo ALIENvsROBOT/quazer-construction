@@ -374,6 +374,25 @@ img {
   letter-spacing: 0;
 }
 
+.hero-lines {
+  position: relative;
+  width: 100%;
+  min-height: 2.9em;
+  display: grid;
+  place-items: center;
+}
+
+.hero-line {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroTextFade 36s infinite;
+  animation-delay: calc(var(--slide) * 6s);
+}
+
 .hero-content p {
   max-width: 620px;
   margin: 0 0 24px;
@@ -1324,6 +1343,19 @@ img {
   }
   100% {
     transform: scale(1.1);
+  }
+}
+
+@keyframes heroTextFade {
+  0%,
+  12% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  17%,
+  100% {
+    opacity: 0;
+    transform: translateY(-18px);
   }
 }
 

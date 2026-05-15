@@ -13,7 +13,13 @@ export function HeroCarousel({ setPage }) {
         ))}
       </div>
       <div className="hero-content">
-        <h1>{carouselSlides[0]?.line ?? heroLines[0]}</h1>
+        <h1 className="hero-lines" aria-label="Quazer Construction project highlights">
+          {carouselSlides.map((slide, index) => (
+            <span className="hero-line" key={`${slide.src}-${slide.line}`} style={{ '--slide': index }}>
+              {slide.line}
+            </span>
+          ))}
+        </h1>
         <p>Quazer Construction delivers high-quality villas, apartments and commercial spaces with disciplined planning and site execution.</p>
         <button type="button" onClick={() => navigateTo('contact', setPage)}>
           Start a Project <ArrowRight size={18} />
