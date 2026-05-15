@@ -1,26 +1,99 @@
 # Quazer Construction Portfolio
 
-Premium React portfolio website for Quazer Construction, built for local preview now and GitHub Pages deployment later.
+Production React portfolio website for Quazer Construction, deployed to GitHub Pages at `https://quazerconstruction.com`.
 
 ## Stack
 
-- React with Vite for fast development and optimized production builds.
-- CSS-driven animations using transforms, opacity and IntersectionObserver for low runtime cost.
-- Sharp asset pipeline that converts source JPG project images into optimized WebP files.
-- Hash-based page routing so GitHub Pages and future custom domains can serve the app without server rewrite rules.
+- React with Vite for optimized production builds.
+- GitHub Actions CI/CD for lint, build, artifact upload and GitHub Pages deploy.
+- Clean client-side routes with a GitHub Pages `404.html` fallback.
+- SEO metadata, sitemap, robots file, canonical URLs, Open Graph tags and JSON-LD structured data.
+- EmailJS contact form configured through Vite environment variables.
+- Sharp asset pipeline for optimized portfolio image generation.
 
-## Project Structure
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Create `.env` locally from `.env.example`:
 
 ```text
-src/
-  components/     Shared UI such as header, footer, logo, page hero and gallery.
-  data/           Site content, phone number, navigation and image lists.
-  hooks/          Lightweight animation/reveal behavior.
-  pages/          Home, About, Team, Work and Contact page composition.
-  sections/       Reusable homepage sections such as carousel, process and featured work.
-  utils/          Navigation helpers for GitHub Pages-safe hash routing.
-scripts/
-  prepare-assets.mjs   Converts quazer_pics images to public/portfolio WebP assets.
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Restart the dev server after changing `.env`.
+
+## Verification
+
+```bash
+npm run lint
+npm run build
+```
+
+The build command runs the image asset generator, Vite production build and GitHub Pages SPA fallback creation.
+
+## Deployment
+
+Deployment is handled by `.github/workflows/deploy-pages.yml`.
+
+On every push to `main`, GitHub Actions:
+
+1. Checks out the repository.
+2. Installs dependencies with `npm ci`.
+3. Runs `npm run lint`.
+4. Runs `npm run build`.
+5. Uploads `dist`.
+6. Deploys to GitHub Pages.
+
+GitHub Pages should be configured with:
+
+```text
+Source: GitHub Actions
+Custom domain: quazerconstruction.com
+Enforce HTTPS: enabled
+```
+
+The custom domain is preserved by `public/CNAME`.
+
+## GitHub Actions Secrets
+
+Add these repository secrets or variables in GitHub:
+
+```text
+VITE_EMAILJS_SERVICE_ID
+VITE_EMAILJS_TEMPLATE_ID
+VITE_EMAILJS_PUBLIC_KEY
+```
+
+Path:
+
+```text
+Repository Settings -> Secrets and variables -> Actions
+```
+
+The workflow supports both repository secrets and repository variables with those names.
+
+## SEO
+
+The site includes:
+
+- `public/sitemap.xml`
+- `public/robots.txt`
+- Route-specific titles and descriptions
+- Canonical URLs for all primary routes
+- Open Graph and Twitter metadata
+- JSON-LD structured data for Quazer Construction as a `GeneralContractor`
+- Crawlable internal links for header and footer navigation
+
+After deployment, submit this sitemap in Google Search Console:
+
+```text
+https://quazerconstruction.com/sitemap.xml
 ```
 
 ## Adding Images
@@ -34,38 +107,10 @@ public/portfolio/render/      Generated Our Design images
 public/portfolio/finished/    Generated Finished Project images
 public/portfolio/carousel/    Generated homepage carousel images
 public/portfolio/logo/        Generated logo asset
+public/portfolio/2D plan/     Manual 2D plan images
+public/portfolio/innovation/  Manual innovation images
 ```
 
-You can also drag ready-to-use images directly into these folders. The build only replaces generated files named like `render-01.webp`, `finished-01.webp`, and `carousel-01.webp`; your custom filenames are preserved and included.
+Ready-to-use images can also be placed directly inside `public/portfolio/` folders. The build only replaces generated files named like `render-01.webp`, `finished-01.webp`, and `carousel-01.webp`; custom filenames are preserved.
 
-For drag-and-drop images that should stay clearly separate from generated files, use `public/direct/`:
-
-```text
-public/direct/render/      Extra images for Our Design
-public/direct/finished/    Extra images for Finished Project
-public/direct/carousel/    Extra images for the homepage carousel
-```
-
-The scanner accepts common image extensions such as `.webp`, `.jpg`, `.jpeg`, `.png`, `.avif`, `.gif`, `.svg`, `.tif`, `.tiff`, `.bmp`, `.heic`, and `.heif`. For widest browser support, prefer `.webp`, `.jpg`, `.jpeg`, `.png`, `.avif`, `.gif`, or `.svg` in `public/direct/`.
-
-Files are sorted by filename, so names like `01-living-room.webp`, `02-bedroom.webp`, and `03-elevation.webp` keep a predictable order.
-
-## Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-## Verification
-
-```bash
-npm run lint
-npm run build
-```
-
-The build command runs `prepare:assets` first, so the latest images from `quazer_pics/` are optimized before production output is generated.
-
-## Deployment Notes
-
-The Vite `base` is set to `./` and the app uses hash routing. This works on GitHub Pages project URLs and also remains compatible when the site is later pointed to a custom domain.
+The scanner accepts `.webp`, `.jpg`, `.jpeg`, `.png`, `.avif`, `.gif`, `.svg`, `.tif`, `.tiff`, `.bmp`, `.heic`, and `.heif`.

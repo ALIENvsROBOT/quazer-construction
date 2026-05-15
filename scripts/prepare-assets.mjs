@@ -39,6 +39,14 @@ const finishedImages = [
   ...(await processManualPortfolioAssets('finished', 'finished', 'Finished Project')),
   ...(await processDirectAssets(['finished', 'finished-project'], 'Finished Project')),
 ];
+const planImages = [
+  ...(await processManualPortfolioAssets('2D plan', '2d-plan', '2D Plan')),
+  ...(await processDirectAssets(['2D plan', '2d-plan'], '2D Plan')),
+];
+const innovationImages = [
+  ...(await processManualPortfolioAssets('innovation', 'innovation', 'Innovation', { includeSubdirectories: true })),
+  ...(await processDirectAssets(['innovation'], 'Innovation')),
+];
 const logoAsset = await processLogo(logoFolder);
 
 await fs.writeFile(
@@ -49,6 +57,8 @@ await fs.writeFile(
     `export const carouselImages = ${JSON.stringify(carouselImages, null, 2)};`,
     `export const renderImages = ${JSON.stringify(renderImages, null, 2)};`,
     `export const finishedImages = ${JSON.stringify(finishedImages, null, 2)};`,
+    `export const planImages = ${JSON.stringify(planImages, null, 2)};`,
+    `export const innovationImages = ${JSON.stringify(innovationImages, null, 2)};`,
     '',
   ].join('\n'),
 );
@@ -159,22 +169,54 @@ async function processDirectAssets(folders, type) {
   return assets;
 }
 
-async function processManualPortfolioAssets(folder, prefix, type) {
+async function processManualPortfolioAssets(folder, prefix, type, options = {}) {
   const dir = path.join(outputRoot, folder);
+  if (folder === '2D plan') await fs.mkdir(dir, { recursive: true });
   const exists = await fs.stat(dir).then((stats) => stats.isDirectory()).catch(() => false);
   if (!exists) return [];
 
   const generatedPattern = new RegExp(`^${prefix}-\\d+\\.webp$`, 'i');
-  const files = (await fs.readdir(dir))
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  const rootFiles = entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name);
+
+  const assets = rootFiles
     .filter((file) => imageExtensions.test(file))
     .filter((file) => !generatedPattern.test(file))
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+    .map((file) => ({
+      src: portfolioAssetPath(folder, file),
+      type,
+      project: titleFromFolder(path.parse(file).name),
+      group: '',
+    }));
 
-  return files.map((file) => ({
-    src: `/portfolio/${folder}/${encodeURIComponent(file)}`,
-    type,
-    project: titleFromFolder(path.parse(file).name),
-  }));
+  if (options.includeSubdirectories) {
+    const subfolders = entries
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+
+    for (const subfolder of subfolders) {
+      const subfolderPath = path.join(dir, subfolder);
+      const files = (await fs.readdir(subfolderPath))
+        .filter((file) => imageExtensions.test(file))
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+
+      assets.push(...files.map((file) => ({
+        src: portfolioAssetPath(folder, subfolder, file),
+        type,
+        project: titleFromFolder(path.parse(file).name),
+        group: titleFromFolder(subfolder),
+      })));
+    }
+  }
+
+  return assets.sort((a, b) => a.src.localeCompare(b.src, undefined, { numeric: true, sensitivity: 'base' }));
+}
+
+function portfolioAssetPath(...segments) {
+  return `/portfolio/${segments.map((segment) => encodeURIComponent(segment)).join('/')}`;
 }
 
 function titleFromFolder(folder) {

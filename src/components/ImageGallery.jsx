@@ -1,12 +1,15 @@
 import { ImageOff, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-export function ImageGallery({ images }) {
+export function ImageGallery({ images, className = 'section gallery-grid' }) {
   const [activeImage, setActiveImage] = useState(null);
   const [failedImages, setFailedImages] = useState(() => new Set());
 
   const closeFromBackdrop = (event) => {
-    if (event.target === event.currentTarget) setActiveImage(null);
+    const clickedImage = event.target.closest('.lightbox-image');
+    const clickedClose = event.target.closest('.lightbox-close');
+
+    if (!clickedImage && !clickedClose) setActiveImage(null);
   };
 
   useEffect(() => {
@@ -29,7 +32,7 @@ export function ImageGallery({ images }) {
 
   return (
     <>
-      <section className="section gallery-grid">
+      <section className={className}>
         {images.map((image, index) => (
           <button
             className="gallery-card"
@@ -62,13 +65,13 @@ export function ImageGallery({ images }) {
           role="dialog"
           aria-modal="true"
           aria-label={`${activeImage.project} expanded image`}
-          onMouseDown={closeFromBackdrop}
+          onPointerDown={closeFromBackdrop}
         >
           <button className="lightbox-close" type="button" onClick={() => setActiveImage(null)} aria-label="Close expanded image">
             <X size={22} />
           </button>
           <figure className="lightbox-frame">
-            <img src={activeImage.src} alt={`${activeImage.project} ${activeImage.type}`} />
+            <img className="lightbox-image" src={activeImage.src} alt={`${activeImage.project} ${activeImage.type}`} />
           </figure>
         </div>
       ) : null}

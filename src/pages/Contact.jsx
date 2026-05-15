@@ -1,17 +1,75 @@
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Sparkles } from 'lucide-react';
-import { phoneNumber, whatsappUrl } from '../data/site';
+import emailjs from '@emailjs/browser';
+import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { instagramUrl, phoneNumber, whatsappUrl } from '../data/site';
 import { PageHero } from '../components/PageHero';
+import { WhatsAppIcon } from '../components/WhatsAppIcon';
+
+const emailConfig = {
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+};
+
+const buildEmailMessage = ({ name, email, phone, message }) => (
+  [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    '',
+    'Message:',
+    message,
+  ].join('\n')
+);
 
 export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [status, setStatus] = useState({ type: 'idle', message: '' });
 
   const update = (event) => {
     setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+    if (status.type !== 'idle') setStatus({ type: 'idle', message: '' });
   };
 
-  const submit = (event) => {
+  const submit = async (event) => {
     event.preventDefault();
+
+    if (!emailConfig.serviceId || !emailConfig.templateId || !emailConfig.publicKey) {
+      setStatus({
+        type: 'error',
+        message: 'EmailJS is not configured yet. Add your credentials to .env and restart the dev server.',
+      });
+      return;
+    }
+
+    setStatus({ type: 'loading', message: 'Sending message...' });
+
+    try {
+      const templateParams = {
+        from_name: form.name,
+        name: form.name,
+        from_email: form.email,
+        user_email: form.email,
+        reply_to: form.email,
+        phone: form.phone,
+        phone_number: form.phone,
+        user_phone: form.phone,
+        message: buildEmailMessage(form),
+        user_message: form.message,
+      };
+
+      await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        templateParams,
+        { publicKey: emailConfig.publicKey },
+      );
+
+      setForm({ name: '', email: '', phone: '', message: '' });
+      setStatus({ type: 'success', message: 'Message sent. Quazer Construction will follow up shortly.' });
+    } catch {
+      setStatus({ type: 'error', message: 'Message could not be sent. Please try again or call directly.' });
+    }
   };
 
   return (
@@ -47,17 +105,25 @@ export function Contact() {
             Message
             <textarea name="message" value={form.message} onChange={update} placeholder="Tell us about your project, site, budget or timeline" rows="6" required />
           </label>
-          <button type="submit">
+          <button type="submit" disabled={status.type === 'loading'}>
             Send Message <Mail size={18} />
           </button>
+          {status.message ? <p className={`form-status ${status.type}`}>{status.message}</p> : null}
         </form>
         <aside className="contact-card" data-reveal>
-          <Sparkles size={28} />
-          <h2>Start with a clear conversation.</h2>
-          <p>Discuss villas, apartments, commercial buildings, hospitals, shopping complexes and turnkey execution requirements.</p>
-          <a href={`tel:${phoneNumber}`}><Phone size={18} /> {phoneNumber}</a>
-          <a href={whatsappUrl}>WhatsApp Quazer Construction</a>
-          <span><MapPin size={18} /> Available for project opportunities and collaborations</span>
+          <div className="contact-card-header">
+            <div>
+              <span className="eyebrow">Project Enquiry</span>
+              <h2>Start with a clear conversation.</h2>
+            </div>
+          </div>
+          <p>Share the project type, site location, budget range and timeline. We handle residential and commercial projects across Tamil Nadu, India.</p>
+          <div className="contact-info-list">
+            <a href={`tel:${phoneNumber}`}><Phone size={18} /> {phoneNumber}</a>
+            <a href={whatsappUrl}><WhatsAppIcon size={18} /> WhatsApp Quazer Construction</a>
+            <a href={instagramUrl} target="_blank" rel="noreferrer"><Instagram size={18} /> Instagram Quazer Construction</a>
+            <span><MapPin size={18} /> Coimbatore, Tamil Nadu, India</span>
+          </div>
         </aside>
       </section>
     </main>

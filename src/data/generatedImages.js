@@ -194,39 +194,46 @@ export const renderImages = [
     "project": "Render Sakthi"
   },
   {
-    "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.49%20PM%20(1).jpeg",
-    "type": "Design Render",
-    "project": "WhatsApp Image 2026 05 15 At 1.13.49 PM (1)"
-  },
-  {
     "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.49%20PM.jpeg",
     "type": "Design Render",
-    "project": "WhatsApp Image 2026 05 15 At 1.13.49 PM"
+    "project": "WhatsApp Image 2026 05 15 At 1.13.49 PM",
+    "group": ""
   },
   {
-    "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.50%20PM%20(1).jpeg",
+    "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.49%20PM%20(1).jpeg",
     "type": "Design Render",
-    "project": "WhatsApp Image 2026 05 15 At 1.13.50 PM (1)"
+    "project": "WhatsApp Image 2026 05 15 At 1.13.49 PM (1)",
+    "group": ""
   },
   {
     "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.50%20PM.jpeg",
     "type": "Design Render",
-    "project": "WhatsApp Image 2026 05 15 At 1.13.50 PM"
+    "project": "WhatsApp Image 2026 05 15 At 1.13.50 PM",
+    "group": ""
   },
   {
-    "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.51%20PM%20(1).jpeg",
+    "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.50%20PM%20(1).jpeg",
     "type": "Design Render",
-    "project": "WhatsApp Image 2026 05 15 At 1.13.51 PM (1)"
-  },
-  {
-    "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.51%20PM%20(2).jpeg",
-    "type": "Design Render",
-    "project": "WhatsApp Image 2026 05 15 At 1.13.51 PM (2)"
+    "project": "WhatsApp Image 2026 05 15 At 1.13.50 PM (1)",
+    "group": ""
   },
   {
     "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.51%20PM.jpeg",
     "type": "Design Render",
-    "project": "WhatsApp Image 2026 05 15 At 1.13.51 PM"
+    "project": "WhatsApp Image 2026 05 15 At 1.13.51 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.51%20PM%20(1).jpeg",
+    "type": "Design Render",
+    "project": "WhatsApp Image 2026 05 15 At 1.13.51 PM (1)",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/render/WhatsApp%20Image%202026-05-15%20at%201.13.51%20PM%20(2).jpeg",
+    "type": "Design Render",
+    "project": "WhatsApp Image 2026 05 15 At 1.13.51 PM (2)",
+    "group": ""
   }
 ];
 export const finishedImages = [
@@ -319,5 +326,201 @@ export const finishedImages = [
     "src": "/portfolio/finished/finished-18.webp",
     "type": "Finished Project",
     "project": "DreamHouse"
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%205.59.29%20PM.jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 5.59.29 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%206.00.52%20PM.jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 6.00.52 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%206.07.01%20PM.jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 6.07.01 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%206.07.01%20PM%20(1).jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 6.07.01 PM (1)",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%206.07.04%20PM.jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 6.07.04 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%206.26.42%20PM.jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 6.26.42 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%206.26.43%20PM.jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 6.26.43 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%206.26.43%20PM%20(1).jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 6.26.43 PM (1)",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/finished/WhatsApp%20Image%202026-05-15%20at%206.26.43%20PM%20(2).jpeg",
+    "type": "Finished Project",
+    "project": "WhatsApp Image 2026 05 15 At 6.26.43 PM (2)",
+    "group": ""
+  }
+];
+export const planImages = [
+  {
+    "src": "/portfolio/2D%20plan/render-11.webp",
+    "type": "2D Plan",
+    "project": "Render 11",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/render-19.webp",
+    "type": "2D Plan",
+    "project": "Render 19",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/WhatsApp%20Image%202026-05-15%20at%206.16.42%20PM.jpeg",
+    "type": "2D Plan",
+    "project": "WhatsApp Image 2026 05 15 At 6.16.42 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/WhatsApp%20Image%202026-05-15%20at%206.19.56%20PM.jpeg",
+    "type": "2D Plan",
+    "project": "WhatsApp Image 2026 05 15 At 6.19.56 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/WhatsApp%20Image%202026-05-15%20at%206.21.20%20PM.jpeg",
+    "type": "2D Plan",
+    "project": "WhatsApp Image 2026 05 15 At 6.21.20 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/WhatsApp%20Image%202026-05-15%20at%206.21.51%20PM.jpeg",
+    "type": "2D Plan",
+    "project": "WhatsApp Image 2026 05 15 At 6.21.51 PM",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/z1.jpeg",
+    "type": "2D Plan",
+    "project": "Z1",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/z2.jpeg",
+    "type": "2D Plan",
+    "project": "Z2",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/z3.jpeg",
+    "type": "2D Plan",
+    "project": "Z3",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/z4.jpeg",
+    "type": "2D Plan",
+    "project": "Z4",
+    "group": ""
+  },
+  {
+    "src": "/portfolio/2D%20plan/z5.jpeg",
+    "type": "2D Plan",
+    "project": "Z5",
+    "group": ""
+  }
+];
+export const innovationImages = [
+  {
+    "src": "/portfolio/innovation/efficiency/WhatsApp%20Image%202026-05-15%20at%206.46.06%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.46.06 PM",
+    "group": "Efficiency"
+  },
+  {
+    "src": "/portfolio/innovation/efficiency/WhatsApp%20Image%202026-05-15%20at%206.46.42%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.46.42 PM",
+    "group": "Efficiency"
+  },
+  {
+    "src": "/portfolio/innovation/efficiency/WhatsApp%20Image%202026-05-15%20at%206.53.59%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.53.59 PM",
+    "group": "Efficiency"
+  },
+  {
+    "src": "/portfolio/innovation/efficiency/WhatsApp%20Image%202026-05-15%20at%206.57.39%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.57.39 PM",
+    "group": "Efficiency"
+  },
+  {
+    "src": "/portfolio/innovation/efficiency/WhatsApp%20Image%202026-05-15%20at%206.58.15%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.58.15 PM",
+    "group": "Efficiency"
+  },
+  {
+    "src": "/portfolio/innovation/efficiency/WhatsApp%20Image%202026-05-15%20at%207.01.56%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 7.01.56 PM",
+    "group": "Efficiency"
+  },
+  {
+    "src": "/portfolio/innovation/Monolithic/WhatsApp%20Image%202026-05-15%20at%206.44.41%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.44.41 PM",
+    "group": "Monolithic"
+  },
+  {
+    "src": "/portfolio/innovation/Monolithic/WhatsApp%20Image%202026-05-15%20at%206.44.42%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.44.42 PM",
+    "group": "Monolithic"
+  },
+  {
+    "src": "/portfolio/innovation/Monolithic/WhatsApp%20Image%202026-05-15%20at%206.44.44%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.44.44 PM",
+    "group": "Monolithic"
+  },
+  {
+    "src": "/portfolio/innovation/Monolithic/WhatsApp%20Image%202026-05-15%20at%206.44.44%20PM%20(1).jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.44.44 PM (1)",
+    "group": "Monolithic"
+  },
+  {
+    "src": "/portfolio/innovation/Monolithic/WhatsApp%20Image%202026-05-15%20at%206.44.49%20PM.jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.44.49 PM",
+    "group": "Monolithic"
+  },
+  {
+    "src": "/portfolio/innovation/Monolithic/WhatsApp%20Image%202026-05-15%20at%206.44.49%20PM%20(1).jpeg",
+    "type": "Innovation",
+    "project": "WhatsApp Image 2026 05 15 At 6.44.49 PM (1)",
+    "group": "Monolithic"
   }
 ];

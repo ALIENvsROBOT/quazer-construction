@@ -1,7 +1,8 @@
-export { carouselImages, finishedImages, logoAsset, renderImages } from './generatedImages';
+export { carouselImages, finishedImages, innovationImages, logoAsset, planImages, renderImages } from './generatedImages';
 
 export const phoneNumber = '+919688826344';
 export const whatsappUrl = 'https://wa.me/message/U32TTXNJMJW7K1';
+export const instagramUrl = 'https://www.instagram.com/_quazer_?igsh=MTFkNXRoajc4YzNmeg%3D%3D&utm_source=qr';
 
 export const navigation = [
   { label: 'Home', page: 'home' },
@@ -13,6 +14,8 @@ export const navigation = [
     children: [
       { label: 'Our Design', page: 'design' },
       { label: 'Finished Project', page: 'finished' },
+      { label: '2D Plan', page: 'plan' },
+      { label: 'Innovation', page: 'innovation' },
     ],
   },
   { label: 'Contact Us', page: 'contact' },
@@ -45,6 +48,17 @@ export const proofPoints = [
   { value: '360°', label: 'Concept to completion support' },
   { value: '5', label: 'Core project categories served' },
   { value: '100%', label: 'Quality, clarity and accountability' },
+];
+
+export const whyQuazerPoints = [
+  { value: '8+', label: 'Years of construction experience' },
+  { value: '5+', label: 'Residential and commercial categories' },
+  { value: '20+', label: 'Design and build stages coordinated' },
+  { value: '25+', label: 'Quality checkpoints from site to handover' },
+  { value: '360°', label: 'Concept to completion guidance' },
+  { value: '10+', label: 'Material and execution checks per phase' },
+  { value: 'TN', label: 'Projects undertaken across Tamil Nadu' },
+  { value: '1', label: 'Accountable team from planning to delivery' },
 ];
 
 export const processSteps = [

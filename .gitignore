@@ -20,7 +20,6 @@ pnpm-debug.log*
 
 # Environment and local secrets
 .env
-.env.*
 !.env.example
 
 # OS and editor files
