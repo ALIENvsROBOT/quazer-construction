@@ -1,0 +1,27 @@
+{
+  "name": "quazer-construction",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "prepare:assets": "node scripts/prepare-assets.mjs",
+    "build": "node scripts/prepare-assets.mjs && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
+    "vite": "^7.2.7",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "lucide-react": "^0.562.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "sharp": "^0.34.5"
+  }
+}
