@@ -89,11 +89,6 @@ export const renderImages = [
     "project": "Render Interior"
   },
   {
-    "src": "/portfolio/render/render-11.webp",
-    "type": "Design Render",
-    "project": "Render Kasturi Garden"
-  },
-  {
     "src": "/portfolio/render/render-12.webp",
     "type": "Design Render",
     "project": "Render Kasturi Garden"
@@ -125,11 +120,6 @@ export const renderImages = [
   },
   {
     "src": "/portfolio/render/render-18.webp",
-    "type": "Design Render",
-    "project": "Render Madurai Client"
-  },
-  {
-    "src": "/portfolio/render/render-19.webp",
     "type": "Design Render",
     "project": "Render Madurai Client"
   },

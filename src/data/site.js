@@ -1,4 +1,19 @@
-export { carouselImages, finishedImages, innovationImages, logoAsset, planImages, renderImages } from './generatedImages';
+import {
+  carouselImages,
+  finishedImages,
+  innovationImages,
+  logoAsset,
+  planImages,
+  renderImages as generatedRenderImages,
+} from './generatedImages';
+
+const removedRenderImagePaths = new Set([
+  '/portfolio/render/render-11.webp',
+  '/portfolio/render/render-19.webp',
+]);
+
+export const renderImages = generatedRenderImages.filter((image) => !removedRenderImagePaths.has(image.src));
+export { carouselImages, finishedImages, innovationImages, logoAsset, planImages };
 
 export const phoneNumber = '+919688826344';
 export const whatsappUrl = 'https://wa.me/message/U32TTXNJMJW7K1';
